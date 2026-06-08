@@ -1,142 +1,908 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Raízes da Cultura</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes da Cultura | Agro Forte, Futuro Sustentável</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="stylesheet" href="style.css">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0e8 100%);
+            color: #2c3e2f;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #2d6a4f, #1b4332);
+            color: white;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            color: #2d6a4f;
+            border-left: 5px solid #ffb703;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            color: #1b4332;
+            margin: 10px 0;
+        }
+
+        /* Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Cards de tradição */
+        .tradicao-card {
+            background: #fefae0;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #ffb703;
+            transition: transform 0.3s;
+        }
+
+        .tradicao-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tradicao-card .emoji {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Quiz Avançado */
+        .quiz-container {
+            background: #e9ecef;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .quiz-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: #2d6a4f;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .stat-badge.difficult {
+            background: #e63946;
+        }
+
+        .stat-badge.medium {
+            background: #ffb703;
+            color: #1b4332;
+        }
+
+        .stat-badge.easy {
+            background: #2d6a4f;
+        }
+
+        .score-display {
+            background: #1b4332;
+            color: #ffb703;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #2d6a4f;
+            transition: width 0.3s ease;
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #1b4332;
+            text-align: center;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-btn {
+            padding: 15px 20px;
+            background: white;
+            border: 2px solid #2d6a4f;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .quiz-btn:hover:not(:disabled) {
+            background: #2d6a4f;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .quiz-btn.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .quiz-btn.correct {
+            background: #2d6a4f;
+            color: white;
+            border-color: #ffb703;
+        }
+
+        .quiz-btn.wrong {
+            background: #e63946;
+            color: white;
+            border-color: #c1121f;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .feedback.wrong {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .next-btn, .restart-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .next-btn {
+            background: #2d6a4f;
+            color: white;
+        }
+
+        .next-btn:hover {
+            background: #1b4332;
+            transform: scale(1.05);
+        }
+
+        .restart-btn {
+            background: #ffb703;
+            color: #1b4332;
+        }
+
+        .restart-btn:hover {
+            background: #fb8500;
+            transform: scale(1.05);
+        }
+
+        .final-score {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .final-score h3 {
+            font-size: 2rem;
+            color: #2d6a4f;
+        }
+
+        .score-message {
+            font-size: 1.1rem;
+            margin: 15px 0;
+        }
+
+        /* Impacto */
+        .impacto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .impacto-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .impacto-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Curiosidades */
+        .curiosidades-lista {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .curiosidades-lista li {
+            background: #2d6a4f;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Certificado */
+        .certificado {
+            text-align: center;
+            background: linear-gradient(135deg, #ffb703, #fb8500);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            background: #1b4332;
+            color: #ffb703;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #2d6a4f;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .input-group input {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            width: 80%;
+            max-width: 300px;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .mensagem {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .certificado-preview {
+            background: white;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .download-btn {
+            background: #1b4332;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: #6c757d;
+            border-top: 1px solid #dee2e6;
+        }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 1.8rem; }
+            .quiz-options { grid-template-columns: 1fr; }
+            .quiz-btn { text-align: center; }
+            .quiz-header { flex-direction: column; text-align: center; }
+        }
+
+        @keyframes confete {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <header>
+            <h1>🌱 Raízes da Cultura</h1>
+            <p>Agro Forte, Futuro Sustentável: Equilíbrio entre Produção e Meio Ambiente</p>
+        </header>
 
-<header>
+        <!-- Introdução -->
+        <div class="card">
+            <h2>🌾 Como a Agricultura Contribui para a Cultura</h2>
+            <p>A agricultura está presente em diversos aspectos da cultura brasileira. Ela influencia tradições, festas populares, gastronomia, costumes e o modo de vida de milhões de pessoas.</p>
+            <p style="margin-top: 10px;"><strong>Além de produzir alimentos</strong>, o campo preserva conhecimentos passados entre gerações e fortalece a identidade cultural das comunidades rurais.</p>
+        </div>
 
-<h1>🌱 Agro Forte, Futuro Sustentável</h1>
+        <!-- Tradições -->
+        <h2>📅 Tradições Culturais</h2>
+        <div class="grid">
+            <div class="tradicao-card">
+                <div class="emoji">🌽</div>
+                <h3>Festa Junina</h3>
+                <p>O milho é o símbolo das Festas Juninas. Receitas como pamonha, curau, bolo de milho e canjica fazem parte dessa tradição.</p>
+            </div>
+            <div class="tradicao-card">
+                <div class="emoji">☕</div>
+                <h3>Cultura do Café</h3>
+                <p>O café ajudou no desenvolvimento econômico e cultural do Brasil, tornando-se parte da identidade nacional.</p>
+            </div>
+            <div class="tradicao-card">
+                <div class="emoji">🍇</div>
+                <h3>Festa da Uva</h3>
+                <p>As festas da colheita valorizam o trabalho agrícola e celebram a união das comunidades rurais.</p>
+            </div>
+        </div>
 
-<p>
-A agricultura produz muito mais que alimentos.
-Ela preserva tradições, fortalece comunidades e ajuda a construir um futuro sustentável.
-</p>
+        <!-- Sustentabilidade -->
+        <div class="card">
+            <h2>🌍 Sustentabilidade</h2>
+            <p>Produzir alimentos respeitando o meio ambiente garante recursos naturais para as futuras gerações. A agricultura sustentável é o caminho para um futuro melhor.</p>
+        </div>
 
-</header>
+        <!-- Quiz Avançado com 10 Perguntas e Níveis -->
+        <div class="card">
+            <h2>🎯 Quiz Cultural Agrícola 🌟</h2>
+            <p style="margin-bottom: 15px;">Teste seus conhecimentos! São 10 perguntas em 3 níveis de dificuldade. Quanto mais difícil, mais pontos!</p>
+            
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-header">
+                    <div class="quiz-stats">
+                        <span class="stat-badge" id="difficultyBadge">📊 Nível: Fácil</span>
+                        <span class="stat-badge" id="pointsBadge">⭐ Pontos: 10</span>
+                    </div>
+                    <div class="score-display">
+                        🏆 Pontuação Total: <span id="totalScore">0</span>
+                    </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="quizProgress" style="width: 0%;"></div>
+                </div>
+                
+                <div id="questionArea">
+                    <div class="quiz-question" id="questionText"></div>
+                    <div class="quiz-options" id="optionsContainer"></div>
+                </div>
+                
+                <div id="feedbackArea" class="feedback" style="display: none;"></div>
+                
+                <div class="quiz-controls">
+                    <button id="nextBtn" class="next-btn" style="display: none;">Próxima Questão →</button>
+                    <button id="restartBtn" class="restart-btn" style="display: none;">🔄 Refazer Quiz</button>
+                </div>
+                
+                <div id="finalArea" class="final-score" style="display: none;">
+                    <div style="font-size: 3rem;">🏆</div>
+                    <h3>Quiz Concluído!</h3>
+                    <div class="score-message" id="scoreMessage"></div>
+                    <div id="rankMessage" style="margin: 15px 0;"></div>
+                </div>
+            </div>
+        </div>
 
-<nav>
+        <!-- Impacto -->
+        <div class="card">
+            <h2>📊 Impacto da Agricultura</h2>
+            <div class="impacto-grid">
+                <div class="impacto-item">
+                    <div class="impacto-icon">🍽️</div>
+                    <h3>Alimentação</h3>
+                    <p>Produz alimentos que chegam diariamente à mesa das famílias brasileiras.</p>
+                </div>
+                <div class="impacto-item">
+                    <div class="impacto-icon">🎭</div>
+                    <h3>Cultura</h3>
+                    <p>Mantém festas populares, tradições e costumes da identidade nacional.</p>
+                </div>
+                <div class="impacto-item">
+                    <div class="impacto-icon">🌱</div>
+                    <h3>Meio Ambiente</h3>
+                    <p>A produção sustentável contribui para a preservação dos recursos naturais.</p>
+                </div>
+            </div>
+        </div>
 
-<ul>
+        <!-- Curiosidades -->
+        <div class="card">
+            <h2>✨ Curiosidades</h2>
+            <ul class="curiosidades-lista">
+                <li>🌽 Milho: presente em dezenas de receitas típicas das Festas Juninas</li>
+                <li>☕ Café: Brasil é um dos maiores produtores e exportadores do mundo</li>
+                <li>🍇 Uva: diversas regiões brasileiras realizam festas da colheita</li>
+                <li>🫘 Soja: Brasil é o maior produtor mundial de soja</li>
+                <li>🍊 Laranja: Brasil produz 30% do suco de laranja do mundo</li>
+                <li>🌾 Cana: Brasil é líder mundial na produção de etanol</li>
+            </ul>
+        </div>
 
-<li><a href="#tradicoes">Tradições</a></li>
+        <!-- Conclusão -->
+        <div class="card">
+            <h2>💚 Conclusão</h2>
+            <p>A agricultura vai muito além da produção de alimentos. Ela preserva tradições, fortalece comunidades, movimenta a economia e ajuda a construir um futuro sustentável.</p>
+            <p style="margin-top: 10px;"><strong>Quando valorizamos o campo, também valorizamos a cultura, a história e o desenvolvimento sustentável do Brasil.</strong></p>
+        </div>
 
-<li><a href="#gastronomia">Gastronomia</a></li>
+        <!-- Certificado -->
+        <div class="certificado" id="certificadoArea">
+            <div style="font-size: 3rem;">🏆</div>
+            <h2>Certificado de Conclusão</h2>
+            <p><strong>Parabéns!</strong> Complete o quiz acima com pelo menos 50 pontos para ganhar seu certificado!</p>
+            
+            <div class="input-group">
+                <input type="text" id="nomeUsuario" placeholder="Digite seu nome completo">
+            </div>
+            
+            <button id="gerarCertificado" class="btn" disabled>🔒 Complete o Quiz primeiro</button>
+            
+            <div id="mensagemCertificado" class="mensagem"></div>
+            
+            <div id="previewCertificado" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 15px;">
+                <div style="font-size: 2rem;">🌱</div>
+                <h3 style="color: #2d6a4f;">CERTIFICADO OFICIAL</h3>
+                <p>Certificamos que <strong id="nomeCertificado"></strong> concluiu com sucesso a jornada</p>
+                <h4>"Raízes da Cultura - Agro Forte, Futuro Sustentável"</h4>
+                <p>Compreendendo a importância da agricultura para a cultura brasileira.</p>
+                <p><strong>Pontuação no Quiz: <span id="certPontuacao"></span> pontos</strong></p>
+                <p><strong>Classificação: <span id="certRank"></span></strong></p>
+                <p><small id="dataCertificado"></small></p>
+                <button id="baixarCertificado" class="download-btn">📥 Baixar Certificado (PNG)</button>
+            </div>
+        </div>
 
-<li><a href="#sustentabilidade">Sustentabilidade</a></li>
+        <!-- Footer -->
+        <footer>
+            <p>📌 Projeto Agrinho 2026</p>
+            <p><strong>Tema:</strong> Agro Forte, Futuro Sustentável</p>
+            <p><strong>Desenvolvido por:</strong> Maria Eduarda</p>
+        </footer>
+    </div>
 
-<li><a href="#conclusao">Conclusão</a></li>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <script>
+        // ==================== BANCO DE PERGUNTAS COM NÍVEIS ====================
+        const perguntas = [
+            // Nível Fácil (10 pontos cada)
+            { pergunta: "🌽 Qual alimento é considerado símbolo das Festas Juninas?", opcoes: ["Milho", "Arroz", "Batata", "Feijão"], correta: 0, nivel: "Fácil", pontos: 10 },
+            { pergunta: "☕ Qual país é o maior produtor de café do mundo?", opcoes: ["Colômbia", "Vietnã", "Brasil", "Etiópia"], correta: 2, nivel: "Fácil", pontos: 10 },
+            { pergunta: "🍇 Em qual região do Brasil a Festa da Uva é mais tradicional?", opcoes: ["Nordeste", "Sudeste", "Norte", "Sul"], correta: 3, nivel: "Fácil", pontos: 10 },
+            { pergunta: "🌱 Uma comunidade que valoriza suas tradições e também adota novas tecnologias está", opcoes: ["Impedindo o desenvolvimento", "Unindo passado e futuro de forma sustentável", "Abandonando sua cultura", "Copiando outras culturas"], correta: 1, nivel: "Fácil", pontos: 10 },
+            
+            // Nível Médio (20 pontos cada)
+            { pergunta: "🌽 Além da pipoca, qual desses pratos é feito à base de milho?", opcoes: ["Pão de queijo", "Pamonha", "Acarajé", "Tapioca"], correta: 1, nivel: "Médio", pontos: 20 },
+            { pergunta: "📅 Em que mês são comemoradas as Festas Juninas no Brasil?", opcoes: ["Maio", "Junho", "Julho", "Agosto"], correta: 1, nivel: "Médio", pontos: 20 },
+            { pergunta: "🇧🇷 Qual estado é conhecido como o maior produtor de café do Brasil?", opcoes: ["São Paulo", "Minas Gerais", "Bahia", "Paraná"], correta: 1, nivel: "Médio", pontos: 20 },
+            { pergunta: "🍊 Qual fruta o Brasil é o maior produtor mundial de suco?", opcoes: ["Laranja", "Uva", "Manga", "Limão"], correta: 0, nivel: "Médio", pontos: 20 },
+            
+            // Nível Difícil (30 pontos cada)
+            { pergunta: "🌾 Qual é o principal produto da agricultura familiar no Nordeste?", opcoes: ["Soja", "Milho", "Mandioca", "Trigo"], correta: 2, nivel: "Difícil", pontos: 30 },
+            { pergunta: "🫘 O Brasil é líder mundial na produção de qual grão?", opcoes: ["Feijão", "Soja", "Arroz", "Trigo"], correta: 1, nivel: "Difícil", pontos: 30 }
+        ];
 
-</ul>
+        // Variáveis do Quiz
+        let perguntaAtual = 0;
+        let pontuacaoTotal = 0;
+        let respostasUsuario = [];
+        let quizFinalizado = false;
+        let podeResponder = true;
 
-</nav>
+        // Elementos DOM
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const feedbackArea = document.getElementById('feedbackArea');
+        const nextBtn = document.getElementById('nextBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const finalArea = document.getElementById('finalArea');
+        const quizProgress = document.getElementById('quizProgress');
+        const totalScoreSpan = document.getElementById('totalScore');
+        const difficultyBadge = document.getElementById('difficultyBadge');
+        const pointsBadge = document.getElementById('pointsBadge');
 
-<img src="banner.jpg" alt="Agricultura" class="banner">
+        // ==================== CARREGAR PERGUNTA ====================
+        function carregarPergunta() {
+            if (perguntaAtual >= perguntas.length) {
+                finalizarQuiz();
+                return;
+            }
 
-<section id="tradicoes">
+            podeResponder = true;
+            const q = perguntas[perguntaAtual];
+            
+            // Atualizar badges
+            const nivelEmoji = q.nivel === 'Fácil' ? '🟢' : (q.nivel === 'Médio' ? '🟡' : '🔴');
+            difficultyBadge.innerHTML = `${nivelEmoji} Nível: ${q.nivel}`;
+            pointsBadge.innerHTML = `⭐ Pontos: ${q.pontos}`;
+            pointsBadge.className = `stat-badge ${q.nivel === 'Fácil' ? 'easy' : (q.nivel === 'Médio' ? 'medium' : 'difficult')}`;
+            
+            // Atualizar pergunta
+            questionText.textContent = q.pergunta;
+            
+            // Criar botões das opções
+            optionsContainer.innerHTML = '';
+            q.opcoes.forEach((opcao, idx) => {
+                const btn = document.createElement('button');
+                btn.textContent = opcao;
+                btn.className = 'quiz-btn';
+                btn.addEventListener('click', () => responder(idx));
+                optionsContainer.appendChild(btn);
+            });
+            
+            // Esconder feedback e próximo
+            feedbackArea.style.display = 'none';
+            nextBtn.style.display = 'none';
+            
+            // Atualizar progresso
+            const progresso = ((perguntaAtual) / perguntas.length) * 100;
+            quizProgress.style.width = `${progresso}%`;
+        }
 
-<h2>🎉 Tradições e Festas Populares</h2>
+        // ==================== RESPONDER PERGUNTA ====================
+        function responder(respostaIndex) {
+            if (!podeResponder) return;
+            
+            const q = perguntas[perguntaAtual];
+            const isCorreta = (respostaIndex === q.correta);
+            
+            // Salvar resposta
+            respostasUsuario.push({
+                pergunta: q.pergunta,
+                respostaSelecionada: q.opcoes[respostaIndex],
+                correta: isCorreta,
+                pontos: isCorreta ? q.pontos : 0,
+                nivel: q.nivel
+            });
+            
+            if (isCorreta) {
+                pontuacaoTotal += q.pontos;
+                totalScoreSpan.textContent = pontuacaoTotal;
+                feedbackArea.className = 'feedback correct';
+                feedbackArea.innerHTML = `✅ CORRETO! +${q.pontos} pontos. ${q.nivel === 'Difícil' ? '🌟 Parabéns pela resposta difícil!' : 'Continue assim!'}`;
+            } else {
+                feedbackArea.className = 'feedback wrong';
+                feedbackArea.innerHTML = `❌ ERRADO! A resposta correta é: ${q.opcoes[q.correta]}. Você perdeu ${q.pontos} pontos.`;
+            }
+            
+            feedbackArea.style.display = 'block';
+            
+            // Destacar botões (mostrar correto/errado)
+            const botoes = document.querySelectorAll('.quiz-btn');
+            botoes.forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.add('disabled');
+                if (idx === q.correta) {
+                    btn.classList.add('correct');
+                }
+                if (idx === respostaIndex && !isCorreta) {
+                    btn.classList.add('wrong');
+                }
+            });
+            
+            podeResponder = false;
+            
+            // Mostrar próximo botão
+            if (perguntaAtual + 1 < perguntas.length) {
+                nextBtn.style.display = 'block';
+            } else {
+                nextBtn.textContent = '🎉 Ver Resultado Final 🎉';
+                nextBtn.style.display = 'block';
+            }
+        }
 
-<p>
-A agricultura está presente em diversas manifestações culturais brasileiras.
-As Festas Juninas, por exemplo, celebram a colheita do milho e valorizam a vida no campo.
-</p>
+        // ==================== PRÓXIMA PERGUNTA ====================
+        function proximaPergunta() {
+            if (!podeResponder) {
+                perguntaAtual++;
+                carregarPergunta();
+            }
+        }
 
-<p>
-Além das festas, muitas tradições rurais são transmitidas entre gerações,
-preservando conhecimentos e fortalecendo a identidade cultural das comunidades.
-</p>
+        // ==================== FINALIZAR QUIZ ====================
+        function finalizarQuiz() {
+            quizFinalizado = true;
+            
+            // Ocultar área de perguntas
+            document.getElementById('questionArea').style.display = 'none';
+            nextBtn.style.display = 'none';
+            
+            // Mostrar área final
+            finalArea.style.display = 'block';
+            restartBtn.style.display = 'block';
+            
+            // Calcular porcentagem
+            const pontosMaximos = perguntas.reduce((acc, q) => acc + q.pontos, 0);
+            const porcentagem = (pontuacaoTotal / pontosMaximos) * 100;
+            
+            // Mensagem personalizada
+            let mensagem = '';
+            let rank = '';
+            
+            if (porcentagem >= 90) {
+                mensagem = '🏆 EXCELENTE! Você é um MESTRE da cultura agrícola brasileira! 🌟🌟🌟';
+                rank = '🏆 Mestre do Agro';
+            } else if (porcentagem >= 70) {
+                mensagem = '🎉 MUITO BOM! Você tem um ótimo conhecimento sobre o assunto! 🌟🌟';
+                rank = '🎖️ Especialista';
+            } else if (porcentagem >= 50) {
+                mensagem = '👍 BOM! Continue aprendendo, você está no caminho certo! 🌟';
+                rank = '📚 Aprendiz';
+            } else {
+                mensagem = '📚 QUE TAL TENTAR NOVAMENTE? Refaça o quiz e melhore seu conhecimento! 💪';
+                rank = '🌱 Iniciante';
+            }
+            
+            document.getElementById('scoreMessage').innerHTML = `
+                Você acertou <strong>${respostasUsuario.filter(r => r.correta).length}</strong> de ${perguntas.length} perguntas!<br>
+                <strong>Pontuação total: ${pontuacaoTotal} de ${pontosMaximos} pontos</strong><br>
+                <strong>Percentual: ${porcentagem.toFixed(1)}%</strong>
+            `;
+            
+            document.getElementById('rankMessage').innerHTML = `
+                <div style="background: #fefae0; padding: 15px; border-radius: 15px; margin-top: 10px;">
+                    <span style="font-size: 2rem;">${rank.includes('Mestre') ? '🏆' : (rank.includes('Especialista') ? '🎖️' : (rank.includes('Aprendiz') ? '📚' : '🌱'))}</span>
+                    <h4>Classificação: ${rank}</h4>
+                </div>
+            `;
+            
+            // Salvar pontuação no localStorage
+            localStorage.setItem('quizPontuacao', pontuacaoTotal);
+            localStorage.setItem('quizPontosMaximos', pontosMaximos);
+            localStorage.setItem('quizPorcentagem', porcentagem.toFixed(1));
+            localStorage.setItem('quizRank', rank);
+            localStorage.setItem('quizCompletado', 'true');
+            
+            // Habilitar certificado se tiver pelo menos 50 pontos
+            const btnCert = document.getElementById('gerarCertificado');
+            if (btnCert) {
+                if (pontuacaoTotal >= 70) {
+                    btnCert.disabled = false;
+                    btnCert.textContent = '🎉 Gerar Certificado 🎉';
+                    document.getElementById('mensagemCertificado').innerHTML = '✅ Parabéns! Você atingiu a pontuação necessária para o certificado!';
+                    document.getElementById('mensagemCertificado').style.color = '#2d6a4f';
+                } else {
+                    btnCert.disabled = true;
+                    btnCert.textContent = '🔒 Complete o Quiz com 70+ pontos';
+                    document.getElementById('mensagemCertificado').innerHTML = '⚠️ Você precisa de pelo menos 70 pontos para gerar o certificado. Refaça o quiz!';
+                    document.getElementById('mensagemCertificado').style.color = '#e63946';
+                }
+            }
+        }
 
-</section>
+        // ==================== REINICIAR QUIZ ====================
+        function reiniciarQuiz() {
+            perguntaAtual = 0;
+            pontuacaoTotal = 0;
+            respostasUsuario = [];
+            quizFinalizado = false;
+            podeResponder = true;
+            totalScoreSpan.textContent = '0';
+            
+            // Mostrar área de perguntas
+            document.getElementById('questionArea').style.display = 'block';
+            finalArea.style.display = 'none';
+            restartBtn.style.display = 'none';
+            
+            carregarPergunta();
+        }
 
-<section id="gastronomia">
+        // ==================== EVENTOS ====================
+        nextBtn.addEventListener('click', proximaPergunta);
+        restartBtn.addEventListener('click', reiniciarQuiz);
 
-<h2>🍞 Agricultura e Gastronomia</h2>
+        // ==================== CERTIFICADO ====================
+        const btnGerar = document.getElementById('gerarCertificado');
+        const nomeInput = document.getElementById('nomeUsuario');
+        const mensagemCert = document.getElementById('mensagemCertificado');
+        const preview = document.getElementById('previewCertificado');
+        const nomeCertificado = document.getElementById('nomeCertificado');
+        const dataCertificadoSpan = document.getElementById('dataCertificado');
+        const certPontuacao = document.getElementById('certPontuacao');
+        const certRank = document.getElementById('certRank');
+        let certificadoGerado = false;
 
-<p>
-Grande parte da culinária brasileira tem origem nos produtos agrícolas.
-Milho, café, mandioca, feijão e frutas fazem parte da alimentação e da cultura nacional.
-</p>
+        if (btnGerar) {
+            btnGerar.addEventListener('click', function() {
+                const nome = nomeInput ? nomeInput.value.trim() : '';
+                
+                if (nome === '') {
+                    mensagemCert.innerHTML = '⚠️ Por favor, digite seu nome!';
+                    mensagemCert.style.color = '#e63946';
+                    return;
+                }
+                
+                const quizCompletado = localStorage.getItem('quizCompletado');
+                const pontuacao = localStorage.getItem('quizPontuacao');
+                
+                if (quizCompletado !== 'true') {
+                    mensagemCert.innerHTML = '⚠️ Complete o quiz primeiro!';
+                    mensagemCert.style.color = '#e63946';
+                    return;
+                }
+                
+                if (parseInt(pontuacao) < 70) {
+                    mensagemCert.innerHTML = '⚠️ Você precisa de pelo menos 70 pontos para o certificado! Refaça o quiz.';
+                    mensagemCert.style.color = '#e63946';
+                    return;
+                }
+                
+                if (certificadoGerado) {
+                    mensagemCert.innerHTML = '📜 Certificado já foi gerado!';
+                    mensagemCert.style.color = '#1b4332';
+                    return;
+                }
+                
+                const agora = new Date();
+                const dataFormatada = agora.toLocaleDateString('pt-BR');
+                const hora = agora.toLocaleTimeString('pt-BR');
+                
+                nomeCertificado.textContent = nome;
+                dataCertificadoSpan.textContent = `Emitido em: ${dataFormatada} às ${hora}`;
+                certPontuacao.textContent = `${pontuacao} pontos`;
+                certRank.textContent = localStorage.getItem('quizRank') || 'Especialista';
+                
+                preview.style.display = 'block';
+                mensagemCert.innerHTML = '🎓✨ CERTIFICADO GERADO COM SUCESSO! ✨🎓';
+                mensagemCert.style.color = '#1b4332';
+                
+                certificadoGerado = true;
+                btnGerar.disabled = true;
+                btnGerar.textContent = '✅ Certificado Gerado ✅';
+                
+                // Confetes
+                for (let i = 0; i < 60; i++) {
+                    const confete = document.createElement('div');
+                    const emojis = ['🎉', '✨', '🌟', '🌽', '☕', '🍇', '🌱', '🏆'];
+                    confete.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    confete.style.position = 'fixed';
+                    confete.style.left = Math.random() * 100 + '%';
+                    confete.style.top = '-30px';
+                    confete.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    confete.style.pointerEvents = 'none';
+                    confete.style.zIndex = '9999';
+                    confete.style.animation = `confete ${Math.random() * 2 + 2}s linear forwards`;
+                    document.body.appendChild(confete);
+                    setTimeout(() => confete.remove(), 3000);
+                }
+            });
+        }
 
-<p>
-Receitas tradicionais ajudam a manter viva a história e os costumes de cada região.
-</p>
+        // Download do certificado
+        const baixarCert = document.getElementById('baixarCertificado');
+        if (baixarCert) {
+            baixarCert.addEventListener('click', function() {
+                const elemento = document.getElementById('previewCertificado');
+                if (elemento && typeof html2canvas !== 'undefined') {
+                    html2canvas(elemento, { scale: 2 }).then(canvas => {
+                        const link = document.createElement('a');
+                        const nome = nomeInput ? nomeInput.value.trim() : 'visitante';
+                        link.download = `certificado_${nome.replace(/ /g, '_')}.png`;
+                        link.href = canvas.toDataURL();
+                        link.click();
+                    });
+                } else {
+                    alert('💡 Tire um print da tela para salvar seu certificado!');
+                }
+            });
+        }
 
-</section>
+        // Iniciar quiz
+        carregarPergunta();
 
-<section id="sustentabilidade">
-
-<h2>🌳 Produção e Meio Ambiente</h2>
-
-<p>
-A agricultura sustentável busca produzir alimentos respeitando os recursos naturais.
-Isso inclui preservar rios, proteger o solo e reduzir impactos ambientais.
-</p>
-
-<p>
-Quando produção e preservação caminham juntas, o campo contribui para um futuro melhor para todos.
-</p>
-
-</section>
-
-<section>
-
-<h2>📊 Benefícios da Agricultura</h2>
-
-<ul>
-
-<li>✅ Produção de alimentos</li>
-
-<li>✅ Geração de empregos</li>
-
-<li>✅ Fortalecimento da cultura</li>
-
-<li>✅ Desenvolvimento econômico</li>
-
-<li>✅ Preservação de tradições</li>
-
-<li>✅ Incentivo à sustentabilidade</li>
-
-</ul>
-
-</section>
-
-<section id="conclusao">
-
-<h2>🌎 Conclusão</h2>
-
-<p>
-A agricultura vai muito além da produção de alimentos.
-Ela está presente na cultura, nas festas populares, na gastronomia e na preservação ambiental.
-</p>
-
-<p>
-Valorizar o campo significa valorizar a história, as tradições e o futuro sustentável do Brasil.
-</p>
-
-</section>
-
-<footer>
-
-<p>Projeto Agrinho 2026</p>
-
-<p>Tema: Agro Forte, Futuro Sustentável</p>
-
-<p>Desenvolvido por Maria Eduarda</p>
-
-</footer>
-
-<button onclick="voltarTopo()" id="topo">
-⬆ Voltar ao topo
-</button>
-
-<script src="script.js"></script>
+        // Contador de visitas
+        let visitas = localStorage.getItem('visitasRaizes') || 0;
+        visitas = parseInt(visitas) + 1;
+        localStorage.setItem('visitasRaizes', visitas);
+    </script>
 </body>
 </html>
