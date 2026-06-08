@@ -1,91 +1,514 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-font-family:Arial,sans-serif;
-line-height:1.8;
-background:#f5f5f5;
-color:#333;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f0e8 100%);
+    color: #2c3e2f;
+    line-height: 1.6;
+    padding: 20px;
 }
 
-header{
-background:#2e7d32;
-color:white;
-padding:50px 20px;
-text-align:center;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-header h1{
-margin-bottom:15px;
+/* ==================== HEADER ==================== */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #2d6a4f, #1b4332);
+    color: white;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-nav{
-background:#1b5e20;
-padding:15px;
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease;
 }
 
-nav ul{
-display:flex;
-justify-content:center;
-gap:30px;
-list-style:none;
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-font-weight:bold;
+/* ==================== CARDS ==================== */
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.banner{
-width:100%;
-max-height:500px;
-object-fit:cover;
-display:block;
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-section{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
-background:white;
-margin-top:20px;
-border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,.1);
+h2 {
+    color: #2d6a4f;
+    border-left: 5px solid #ffb703;
+    padding-left: 15px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-h2{
-color:#2e7d32;
-margin-bottom:15px;
+h3 {
+    color: #1b4332;
+    margin: 10px 0;
+    font-size: 1.2rem;
 }
 
-ul{
-padding-left:25px;
+/* ==================== GRID ==================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
 }
 
-footer{
-background:#1b5e20;
-color:white;
-text-align:center;
-padding:25px;
-margin-top:30px;
-}
-#topo{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#2e7d32;
-color:white;
-border:none;
-padding:12px 18px;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
+/* ==================== CARDS DE TRADIÇÃO ==================== */
+.tradicao-card {
+    background: #fefae0;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #ffb703;
+    transition: transform 0.3s;
 }
 
-#topo:hover{
-background:#1b5e20;
+.tradicao-card:hover {
+    transform: translateY(-5px);
+}
+
+.tradicao-card .emoji {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.tradicao-card p {
+    color: #4a4e69;
+    font-size: 0.95rem;
+}
+
+/* ==================== QUIZ ==================== */
+.quiz-area {
+    background: #e9ecef;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.quiz-question {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #1b4332;
+}
+
+.quiz-option {
+    display: inline-block;
+    margin: 8px;
+    padding: 12px 25px;
+    background: white;
+    border: 2px solid #2d6a4f;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.quiz-option:hover {
+    background: #2d6a4f;
+    color: white;
+    transform: scale(1.05);
+}
+
+.quiz-option.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.quiz-option.disabled:hover {
+    background: white;
+    color: inherit;
+    transform: none;
+}
+
+.quiz-option.correct {
+    background: #2d6a4f;
+    color: white;
+    border-color: #ffb703;
+}
+
+.feedback {
+    margin-top: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* ==================== IMPACTO ==================== */
+.impacto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.impacto-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.impacto-item:hover {
+    background: #e9ecef;
+    transform: translateY(-3px);
+}
+
+.impacto-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.impacto-item p {
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+/* ==================== CURIOSIDADES ==================== */
+.curiosidades-lista {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.curiosidades-lista li {
+    background: #2d6a4f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.curiosidades-lista li:hover {
+    background: #1b4332;
+    transform: scale(1.02);
+}
+
+/* ==================== CERTIFICADO ==================== */
+.certificado {
+    text-align: center;
+    background: linear-gradient(135deg, #ffb703, #fb8500);
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
+    transition: all 0.3s;
+}
+
+.certificado h2 {
+    color: #1b4332;
+    border-left: none;
+    text-align: center;
+}
+
+.btn {
+    background: #1b4332;
+    color: #ffb703;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background: #2d6a4f;
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn:disabled:hover {
+    background: #1b4332;
+    color: #ffb703;
+}
+
+/* ==================== FORMULÁRIO ==================== */
+.input-group {
+    margin: 15px 0;
+}
+
+.input-group input {
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: none;
+    width: 80%;
+    max-width: 300px;
+    font-size: 1rem;
+    outline: none;
+    text-align: center;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 0 2px #1b4332;
+}
+
+/* ==================== MENSAGENS ==================== */
+.mensagem {
+    margin-top: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* ==================== PREVIEW DO CERTIFICADO ==================== */
+.certificado-preview {
+    background: white;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.download-btn {
+    background: #1b4332;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.download-btn:hover {
+    background: #2d6a4f;
+    transform: scale(1.02);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    color: #6c757d;
+    border-top: 1px solid #dee2e6;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    .quiz-option {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+    
+    .curiosidades-lista {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .curiosidades-lista li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .impacto-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .input-group input {
+        width: 90%;
+    }
+    
+    .certificado {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 30px 15px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .quiz-option {
+        width: 95%;
+        padding: 10px 15px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes confete {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Efeito de brilho nos cards */
+.card, .tradicao-card, .impacto-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before, .tradicao-card::before, .impacto-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.card:hover::before, .tradicao-card:hover::before, .impacto-item:hover::before {
+    left: 100%;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #e8f0e8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d6a4f;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1b4332;
+}
+
+/* Seleção de texto */
+::selection {
+    background: #ffb703;
+    color: #1b4332;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #2d6a4f;
+}
+
+/* Botão de voltar ao topo (opcional) */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2d6a4f;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.back-to-top.show {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background: #1b4332;
+    transform: scale(1.1);
 }
