@@ -1,169 +1,290 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes da Cultura - Agrinho 2026</title>
 
-<title>Raízes da Cultura</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <section class="hero">
-    <div class="hero-text">
-        <h2>Agro Forte, Futuro Sustentável</h2>
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <h1>🌱 Raízes da Cultura</h1>
+
         <p>
-            Descubra como a agricultura preserva tradições,
-            fortalece a cultura brasileira e protege o meio ambiente.
+            Agro Forte, Futuro Sustentável:
+            Equilíbrio entre Produção e Meio Ambiente
         </p>
-    </div>
-</section>
-    <img
-src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=1200"
-alt="Agricultura"
-class="banner">
 
-<h1>🌱 Raízes da Cultura</h1>
+    </header>
 
-<p>
-A agricultura produz muito mais do que alimentos.
-Ela preserva tradições, fortalece comunidades e ajuda a construir um futuro sustentável.
-</p>
+    <!-- BANNER -->
 
-</header>
-
-<section>
-
-<h2>🌾 Como a Agricultura Contribui para a Cultura</h2>
-
-<div class="cards">
-
-<div class="card" onclick="mostrar(this)">
-
-<h3>🌽 Festa Junina</h3>
-
-<div class="info">
-O milho é um dos símbolos das Festas Juninas. Alimentos como pamonha, curau e bolo de milho fazem parte dessa tradição cultural.
-</div>
-
-</div>
-
-<div class="card" onclick="mostrar(this)">
-
-<h3>☕ Cultura do Café</h3>
-
-<div class="info">
-O café ajudou no desenvolvimento econômico e cultural do Brasil, influenciando hábitos e tradições.
-</div>
-
-</div>
-
-<div class="card" onclick="mostrar(this)">
-
-<h3>🍇 Festa da Uva</h3>
-
-<div class="info">
-A produção agrícola inspirou festas que celebram a colheita e valorizam a cultura das comunidades rurais.
-</div>
-
-</div>
-
-<div class="card" onclick="mostrar(this)">
-
-<h3>🌱 Sustentabilidade</h3>
-
-<div class="info">
-Produzir alimentos respeitando o meio ambiente garante recursos naturais para as próximas gerações.
-</div>
-
-</div>
-
-</div>
-
+    <section class="hero">
+    <img src="./banner.jpg" alt="Raízes da Cultura">
 </section>
 
-<section>
+    <!-- INTRODUÇÃO -->
 
-<h2>🧩 Quiz Cultural</h2>
+    <section>
 
-<div class="quiz">
+        <h2>🌾 Como a Agricultura Contribui para a Cultura</h2>
 
-<p>
-<strong>
-Qual alimento é considerado símbolo das Festas Juninas?
-</strong>
-</p>
+        <div class="card">
 
-<button onclick="responder(true)">
-🌽 Milho
-</button>
+            <p>
+                A agricultura está presente em diversos aspectos da cultura brasileira.
+                Ela influencia tradições, festas populares, gastronomia, costumes e o modo
+                de vida de milhões de pessoas.
+            </p>
 
-<button onclick="responder(false)">
-🍚 Arroz
-</button>
+            <br>
 
-<button onclick="responder(false)">
-🥔 Batata
-</button>
+            <p>
+                Além de produzir alimentos, o campo preserva conhecimentos passados entre
+                gerações e fortalece a identidade cultural das comunidades rurais.
+            </p>
 
-<div id="resultado"></div>
+        </div>
 
-<div id="certificado" class="certificado">
+    </section>
 
-<h2>🏆 Certificado</h2>
+    <!-- CARDS -->
 
-<p>
-Parabéns! Você concluiu a jornada "Raízes da Cultura" e aprendeu como a agricultura contribui para a cultura brasileira e para um futuro sustentável.
-</p>
+    <section>
 
-</div>
+        <div class="cards">
 
-</div>
+            <div class="card">
 
-</section>
+                <h3>🌽 Festa Junina</h3>
 
-<section class="impacto">
+                <p>
+                    O milho é um dos principais símbolos das Festas Juninas.
+                    Receitas como pamonha, curau, bolo de milho e canjica fazem parte dessa tradição.
+                </p>
 
-<h2>📊 Impacto da Agricultura</h2>
+            </div>
 
-<div class="cards">
+            <div class="card">
 
-<div class="card">
-<h3>🍞 Alimentação</h3>
-<p>Produz alimentos para milhões de pessoas.</p>
-</div>
+                <h3>☕ Cultura do Café</h3>
 
-<div class="card">
-<h3>🎉 Cultura</h3>
-<p>Mantém festas e tradições populares.</p>
-</div>
+                <p>
+                    O café ajudou no desenvolvimento econômico e cultural do Brasil,
+                    tornando-se parte do cotidiano e da identidade nacional.
+                </p>
 
-<div class="card">
-<h3>🌳 Sustentabilidade</h3>
-<p>Promove o uso consciente dos recursos naturais.</p>
-</div>
+            </div>
 
-</div>
+            <div class="card">
 
-</section>
+                <h3>🍇 Festa da Uva</h3>
 
-<footer>
+                <p>
+                    As festas da colheita valorizam o trabalho agrícola e celebram
+                    a união das comunidades rurais.
+                </p>
 
-<p>
-Projeto desenvolvido para o Agrinho 2026
-</p>
+            </div>
 
-<p>
-Tema: Agro Forte, Futuro Sustentável
-</p>
+            <div class="card">
 
-</footer>
+                <h3>🌱 Sustentabilidade</h3>
 
-<script src="script.js"></script>
+                <p>
+                    Produzir alimentos respeitando o meio ambiente garante recursos naturais
+                    para as futuras gerações.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- QUIZ -->
+
+    <section>
+
+        <h2>🧩 Quiz Cultural</h2>
+
+        <div class="quiz">
+
+            <p>
+                <strong>
+                    Qual alimento é considerado símbolo das Festas Juninas?
+                </strong>
+            </p>
+
+            <button onclick="responder(true)">
+                🌽 Milho
+            </button>
+
+            <button onclick="responder(false)">
+                🍚 Arroz
+            </button>
+
+            <button onclick="responder(false)">
+                🥔 Batata
+            </button>
+
+            <div id="resultado"></div>
+
+            <div id="certificado" class="certificado">
+
+                <h2>🏆 Certificado</h2>
+
+                <p>
+                    Parabéns!
+                </p>
+
+                <br>
+
+                <p>
+                    Você concluiu a jornada "Raízes da Cultura" e aprendeu como a agricultura
+                    contribui para a cultura brasileira e para um futuro sustentável.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- IMPACTOS -->
+
+    <section>
+
+        <h2>📊 Impacto da Agricultura</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🍞 Alimentação</h3>
+
+                <p>
+                    Produz alimentos que chegam diariamente à mesa das famílias brasileiras.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎉 Cultura</h3>
+
+                <p>
+                    Mantém festas populares, tradições e costumes que fazem parte da identidade nacional.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🌳 Meio Ambiente</h3>
+
+                <p>
+                    A produção sustentável contribui para a preservação dos recursos naturais.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CURIOSIDADES -->
+
+    <section>
+
+        <h2>🌟 Curiosidades</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🌽 Milho</h3>
+
+                <p>
+                    Está presente em dezenas de receitas típicas das Festas Juninas.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>☕ Café</h3>
+
+                <p>
+                    O Brasil é um dos maiores produtores e exportadores de café do mundo.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🍇 Uva</h3>
+
+                <p>
+                    Diversas regiões brasileiras realizam festas para celebrar a colheita da uva.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONCLUSÃO -->
+
+    <section>
+
+        <h2>🌎 Conclusão</h2>
+
+        <div class="card">
+
+            <p>
+                A agricultura vai muito além da produção de alimentos.
+                Ela preserva tradições, fortalece comunidades, movimenta a economia
+                e ajuda a construir um futuro sustentável.
+            </p>
+
+            <br>
+
+            <p>
+                Quando valorizamos o campo, também valorizamos a cultura,
+                a história e o desenvolvimento sustentável do Brasil.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <h3>Projeto Agrinho 2026</h3>
+
+        <p>
+            Tema: Agro Forte, Futuro Sustentável
+        </p>
+
+        <p>
+            Desenvolvido por Maria Eduarda
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
