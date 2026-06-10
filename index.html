@@ -44,6 +44,37 @@
             opacity: 0.9;
         }
 
+        /* Banner de Destaque */
+        .banner-destaque {
+            margin: 20px 0 30px 0;
+            text-align: center;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .banner-destaque img {
+            width: 100%;
+            max-width: 1000px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .banner-destaque img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .card {
             background: white;
             border-radius: 20px;
@@ -360,7 +391,7 @@
             font-weight: bold;
         }
 
-        /* Certificado Preview - ESTILO PARA O PNG */
+        /* Certificado Preview - COM IMAGEM */
         .certificado-preview {
             background: white;
             margin-top: 20px;
@@ -373,14 +404,20 @@
             margin-right: auto;
         }
 
+        .certificado-preview .certificado-imagem {
+            width: 200px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
         .certificado-preview .certificado-icon {
-            font-size: 3rem;
+            font-size: 2rem;
             margin-bottom: 10px;
         }
 
         .certificado-preview h3 {
             color: #2d6a4f;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
             border-bottom: 2px solid #ffb703;
             display: inline-block;
@@ -393,7 +430,7 @@
         }
 
         .certificado-preview .certificado-nome {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #ffb703;
             background: #1b4332;
             display: inline-block;
@@ -436,6 +473,8 @@
             header h1 { font-size: 1.8rem; }
             .quiz-options { grid-template-columns: 1fr; }
             .quiz-btn { text-align: center; }
+            .banner-destaque img { width: 100%; }
+            .certificado-preview .certificado-imagem { width: 150px; }
         }
 
         @keyframes confete {
@@ -450,6 +489,11 @@
             <h1>🌱 Raízes da Cultura</h1>
             <p>Agro Forte, Futuro Sustentável: Equilíbrio entre Produção e Meio Ambiente</p>
         </header>
+
+        <!-- BANNER DE DESTAQUE -->
+        <div class="banner-destaque">
+            <img src="https://chatgpt.com/backend-api/estuary/content?id=file_00000000a658720e81814a87a1c3d02e&ts=494747&p=fs&cid=1&sig=4fc37de48203e630df55e0991a017fe81bfb9b2bb59cf14f4e437feeffc91456&v=0" alt="Raízes da Cultura" style="width: 100%; border-radius: 20px;">
+        </div>
 
         <div class="card">
             <h2>🌾 Como a Agricultura Contribui para a Cultura</h2>
@@ -560,7 +604,7 @@
             <p style="margin-top: 10px;"><strong>Quando valorizamos o campo, também valorizamos a cultura, a história e o desenvolvimento sustentável do Brasil.</strong></p>
         </div>
 
-        <!-- Certificado -->
+        <!-- Certificado COM IMAGEM -->
         <div class="certificado" id="certificadoArea">
             <div style="font-size: 3rem;">🏆</div>
             <h2>Certificado de Conclusão</h2>
@@ -574,8 +618,9 @@
             
             <div id="mensagemCertificado" class="mensagem"></div>
             
-            <!-- Preview do Certificado (oculto até gerar) -->
+            <!-- Preview do Certificado COM A IMAGEM -->
             <div id="previewCertificado" class="certificado-preview" style="display: none;">
+                <img src="https://chatgpt.com/backend-api/estuary/content?id=file_00000000a658720e81814a87a1c3d02e&ts=494747&p=fs&cid=1&sig=4fc37de48203e630df55e0991a017fe81bfb9b2bb59cf14f4e437feeffc91456&v=0" alt="Raízes da Cultura" class="certificado-imagem">
                 <div class="certificado-icon">🌱</div>
                 <h3>CERTIFICADO OFICIAL</h3>
                 <p>Certificamos que</p>
@@ -872,17 +917,14 @@
             }
         });
 
-        // ==================== BAIXAR CERTIFICADO SEM O BOTÃO ====================
+        // ==================== BAIXAR CERTIFICADO ====================
         btnBaixar.addEventListener('click', function() {
-            // Clona o preview do certificado
             const originalPreview = document.getElementById('previewCertificado');
             const clone = originalPreview.cloneNode(true);
             
-            // Remove qualquer botão que possa existir dentro do clone
             const botoesNoClone = clone.querySelectorAll('button');
             botoesNoClone.forEach(btn => btn.remove());
             
-            // Estiliza o clone para ficar bonito
             clone.style.display = 'block';
             clone.style.position = 'fixed';
             clone.style.left = '-9999px';
@@ -896,7 +938,6 @@
             
             document.body.appendChild(clone);
             
-            // Gera a imagem
             html2canvas(clone, {
                 scale: 2,
                 backgroundColor: '#ffffff',
@@ -907,11 +948,8 @@
                 link.download = `certificado_${nome}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
-                
-                // Remove o clone
                 document.body.removeChild(clone);
                 
-                // Mensagem de sucesso
                 const msg = document.createElement('div');
                 msg.textContent = '📥 Certificado baixado com sucesso!';
                 msg.style.position = 'fixed';
