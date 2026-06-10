@@ -24,7 +24,6 @@
             margin: 0 auto;
         }
 
-        /* Header */
         header {
             text-align: center;
             padding: 50px 20px;
@@ -45,7 +44,6 @@
             opacity: 0.9;
         }
 
-        /* Cards */
         .card {
             background: white;
             border-radius: 20px;
@@ -72,7 +70,6 @@
             margin: 10px 0;
         }
 
-        /* Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -80,7 +77,6 @@
             margin-bottom: 25px;
         }
 
-        /* Cards de tradição */
         .tradicao-card {
             background: #fefae0;
             border-radius: 15px;
@@ -99,7 +95,7 @@
             margin-bottom: 10px;
         }
 
-        /* Quiz Avançado */
+        /* Quiz */
         .quiz-container {
             background: #e9ecef;
             border-radius: 15px;
@@ -138,10 +134,6 @@
         .stat-badge.medium {
             background: #ffb703;
             color: #1b4332;
-        }
-
-        .stat-badge.easy {
-            background: #2d6a4f;
         }
 
         .score-display {
@@ -287,7 +279,6 @@
             margin: 15px 0;
         }
 
-        /* Impacto */
         .impacto-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -306,7 +297,6 @@
             margin-bottom: 10px;
         }
 
-        /* Curiosidades */
         .curiosidades-lista {
             list-style: none;
             display: flex;
@@ -323,7 +313,6 @@
             font-size: 0.9rem;
         }
 
-        /* Certificado */
         .certificado {
             text-align: center;
             background: linear-gradient(135deg, #ffb703, #fb8500);
@@ -371,12 +360,53 @@
             font-weight: bold;
         }
 
+        /* Certificado Preview - ESTILO PARA O PNG */
         .certificado-preview {
             background: white;
             margin-top: 20px;
-            padding: 20px;
+            padding: 30px;
             border-radius: 15px;
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .certificado-preview .certificado-icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .certificado-preview h3 {
+            color: #2d6a4f;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ffb703;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .certificado-preview h4 {
+            color: #1b4332;
+            margin: 15px 0;
+        }
+
+        .certificado-preview .certificado-nome {
+            font-size: 1.5rem;
+            color: #ffb703;
+            background: #1b4332;
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 30px;
+            margin: 10px 0;
+        }
+
+        .certificado-preview .certificado-pontos {
+            background: #fefae0;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 15px 0;
         }
 
         .download-btn {
@@ -387,6 +417,11 @@
             border-radius: 25px;
             cursor: pointer;
             margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        .download-btn:hover {
+            background: #2d6a4f;
         }
 
         footer {
@@ -401,7 +436,6 @@
             header h1 { font-size: 1.8rem; }
             .quiz-options { grid-template-columns: 1fr; }
             .quiz-btn { text-align: center; }
-            .quiz-header { flex-direction: column; text-align: center; }
         }
 
         @keyframes confete {
@@ -412,20 +446,17 @@
 </head>
 <body>
     <div class="container">
-        <!-- Cabeçalho -->
         <header>
             <h1>🌱 Raízes da Cultura</h1>
             <p>Agro Forte, Futuro Sustentável: Equilíbrio entre Produção e Meio Ambiente</p>
         </header>
 
-        <!-- Introdução -->
         <div class="card">
             <h2>🌾 Como a Agricultura Contribui para a Cultura</h2>
             <p>A agricultura está presente em diversos aspectos da cultura brasileira. Ela influencia tradições, festas populares, gastronomia, costumes e o modo de vida de milhões de pessoas.</p>
             <p style="margin-top: 10px;"><strong>Além de produzir alimentos</strong>, o campo preserva conhecimentos passados entre gerações e fortalece a identidade cultural das comunidades rurais.</p>
         </div>
 
-        <!-- Tradições -->
         <h2>📅 Tradições Culturais</h2>
         <div class="grid">
             <div class="tradicao-card">
@@ -445,16 +476,15 @@
             </div>
         </div>
 
-        <!-- Sustentabilidade -->
         <div class="card">
             <h2>🌍 Sustentabilidade</h2>
             <p>Produzir alimentos respeitando o meio ambiente garante recursos naturais para as futuras gerações. A agricultura sustentável é o caminho para um futuro melhor.</p>
         </div>
 
-        <!-- Quiz Avançado com 10 Perguntas e Níveis -->
+        <!-- Quiz -->
         <div class="card">
             <h2>🎯 Quiz Cultural Agrícola 🌟</h2>
-            <p style="margin-bottom: 15px;">Teste seus conhecimentos! São 10 perguntas em 3 níveis de dificuldade. Quanto mais difícil, mais pontos!</p>
+            <p style="margin-bottom: 15px;">Teste seus conhecimentos! São 10 perguntas em 3 níveis de dificuldade.</p>
             
             <div class="quiz-container" id="quizContainer">
                 <div class="quiz-header">
@@ -492,7 +522,6 @@
             </div>
         </div>
 
-        <!-- Impacto -->
         <div class="card">
             <h2>📊 Impacto da Agricultura</h2>
             <div class="impacto-grid">
@@ -514,7 +543,6 @@
             </div>
         </div>
 
-        <!-- Curiosidades -->
         <div class="card">
             <h2>✨ Curiosidades</h2>
             <ul class="curiosidades-lista">
@@ -523,11 +551,9 @@
                 <li>🍇 Uva: diversas regiões brasileiras realizam festas da colheita</li>
                 <li>🫘 Soja: Brasil é o maior produtor mundial de soja</li>
                 <li>🍊 Laranja: Brasil produz 30% do suco de laranja do mundo</li>
-                <li>🌾 Cana: Brasil é líder mundial na produção de etanol</li>
             </ul>
         </div>
 
-        <!-- Conclusão -->
         <div class="card">
             <h2>💚 Conclusão</h2>
             <p>A agricultura vai muito além da produção de alimentos. Ela preserva tradições, fortalece comunidades, movimenta a economia e ajuda a construir um futuro sustentável.</p>
@@ -538,7 +564,7 @@
         <div class="certificado" id="certificadoArea">
             <div style="font-size: 3rem;">🏆</div>
             <h2>Certificado de Conclusão</h2>
-            <p><strong>Parabéns!</strong> Complete o quiz acima com pelo menos 50 pontos para ganhar seu certificado!</p>
+            <p><strong>Parabéns!</strong> Complete o quiz acima para ganhar seu certificado!</p>
             
             <div class="input-group">
                 <input type="text" id="nomeUsuario" placeholder="Digite seu nome completo">
@@ -548,20 +574,25 @@
             
             <div id="mensagemCertificado" class="mensagem"></div>
             
-            <div id="previewCertificado" style="display: none; margin-top: 20px; padding: 20px; background: white; border-radius: 15px;">
-                <div style="font-size: 2rem;">🌱</div>
-                <h3 style="color: #2d6a4f;">CERTIFICADO OFICIAL</h3>
-                <p>Certificamos que <strong id="nomeCertificado"></strong> concluiu com sucesso a jornada</p>
+            <!-- Preview do Certificado (oculto até gerar) -->
+            <div id="previewCertificado" class="certificado-preview" style="display: none;">
+                <div class="certificado-icon">🌱</div>
+                <h3>CERTIFICADO OFICIAL</h3>
+                <p>Certificamos que</p>
+                <div class="certificado-nome" id="nomeCertificado">Nome</div>
+                <p>concluiu com sucesso a jornada</p>
                 <h4>"Raízes da Cultura - Agro Forte, Futuro Sustentável"</h4>
                 <p>Compreendendo a importância da agricultura para a cultura brasileira.</p>
-                <p><strong>Pontuação no Quiz: <span id="certPontuacao"></span> pontos</strong></p>
-                <p><strong>Classificação: <span id="certRank"></span></strong></p>
+                <div class="certificado-pontos">
+                    <strong>Pontuação no Quiz: <span id="certPontuacao"></span> pontos</strong><br>
+                    <strong>Classificação: <span id="certRank"></span></strong>
+                </div>
                 <p><small id="dataCertificado"></small></p>
-                <button id="baixarCertificado" class="download-btn">📥 Baixar Certificado (PNG)</button>
             </div>
+            
+            <button id="baixarCertificado" class="download-btn" style="display: none;">📥 Baixar Certificado (PNG)</button>
         </div>
 
-        <!-- Footer -->
         <footer>
             <p>📌 Projeto Agrinho 2026</p>
             <p><strong>Tema:</strong> Agro Forte, Futuro Sustentável</p>
@@ -572,33 +603,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
     <script>
-        // ==================== BANCO DE PERGUNTAS COM NÍVEIS ====================
+        // ==================== BANCO DE PERGUNTAS ====================
         const perguntas = [
-            // Nível Fácil (10 pontos cada)
             { pergunta: "🌽 Qual alimento é considerado símbolo das Festas Juninas?", opcoes: ["Milho", "Arroz", "Batata", "Feijão"], correta: 0, nivel: "Fácil", pontos: 10 },
             { pergunta: "☕ Qual país é o maior produtor de café do mundo?", opcoes: ["Colômbia", "Vietnã", "Brasil", "Etiópia"], correta: 2, nivel: "Fácil", pontos: 10 },
             { pergunta: "🍇 Em qual região do Brasil a Festa da Uva é mais tradicional?", opcoes: ["Nordeste", "Sudeste", "Norte", "Sul"], correta: 3, nivel: "Fácil", pontos: 10 },
-            { pergunta: "🌱 Uma comunidade que valoriza suas tradições e também adota novas tecnologias está", opcoes: ["Impedindo o desenvolvimento", "Unindo passado e futuro de forma sustentável", "Abandonando sua cultura", "Copiando outras culturas"], correta: 1, nivel: "Fácil", pontos: 10 },
-            
-            // Nível Médio (20 pontos cada)
+            { pergunta: "🌱 O que é agricultura sustentável?", opcoes: ["Produzir sem limites", "Respeitar o meio ambiente", "Usar muitos agrotóxicos", "Desmatar áreas"], correta: 1, nivel: "Fácil", pontos: 10 },
             { pergunta: "🌽 Além da pipoca, qual desses pratos é feito à base de milho?", opcoes: ["Pão de queijo", "Pamonha", "Acarajé", "Tapioca"], correta: 1, nivel: "Médio", pontos: 20 },
             { pergunta: "📅 Em que mês são comemoradas as Festas Juninas no Brasil?", opcoes: ["Maio", "Junho", "Julho", "Agosto"], correta: 1, nivel: "Médio", pontos: 20 },
             { pergunta: "🇧🇷 Qual estado é conhecido como o maior produtor de café do Brasil?", opcoes: ["São Paulo", "Minas Gerais", "Bahia", "Paraná"], correta: 1, nivel: "Médio", pontos: 20 },
             { pergunta: "🍊 Qual fruta o Brasil é o maior produtor mundial de suco?", opcoes: ["Laranja", "Uva", "Manga", "Limão"], correta: 0, nivel: "Médio", pontos: 20 },
-            
-            // Nível Difícil (30 pontos cada)
             { pergunta: "🌾 Qual é o principal produto da agricultura familiar no Nordeste?", opcoes: ["Soja", "Milho", "Mandioca", "Trigo"], correta: 2, nivel: "Difícil", pontos: 30 },
             { pergunta: "🫘 O Brasil é líder mundial na produção de qual grão?", opcoes: ["Feijão", "Soja", "Arroz", "Trigo"], correta: 1, nivel: "Difícil", pontos: 30 }
         ];
 
-        // Variáveis do Quiz
         let perguntaAtual = 0;
         let pontuacaoTotal = 0;
         let respostasUsuario = [];
         let quizFinalizado = false;
         let podeResponder = true;
 
-        // Elementos DOM
         const questionText = document.getElementById('questionText');
         const optionsContainer = document.getElementById('optionsContainer');
         const feedbackArea = document.getElementById('feedbackArea');
@@ -610,7 +634,6 @@
         const difficultyBadge = document.getElementById('difficultyBadge');
         const pointsBadge = document.getElementById('pointsBadge');
 
-        // ==================== CARREGAR PERGUNTA ====================
         function carregarPergunta() {
             if (perguntaAtual >= perguntas.length) {
                 finalizarQuiz();
@@ -620,16 +643,13 @@
             podeResponder = true;
             const q = perguntas[perguntaAtual];
             
-            // Atualizar badges
             const nivelEmoji = q.nivel === 'Fácil' ? '🟢' : (q.nivel === 'Médio' ? '🟡' : '🔴');
             difficultyBadge.innerHTML = `${nivelEmoji} Nível: ${q.nivel}`;
             pointsBadge.innerHTML = `⭐ Pontos: ${q.pontos}`;
             pointsBadge.className = `stat-badge ${q.nivel === 'Fácil' ? 'easy' : (q.nivel === 'Médio' ? 'medium' : 'difficult')}`;
             
-            // Atualizar pergunta
             questionText.textContent = q.pergunta;
             
-            // Criar botões das opções
             optionsContainer.innerHTML = '';
             q.opcoes.forEach((opcao, idx) => {
                 const btn = document.createElement('button');
@@ -639,23 +659,19 @@
                 optionsContainer.appendChild(btn);
             });
             
-            // Esconder feedback e próximo
             feedbackArea.style.display = 'none';
             nextBtn.style.display = 'none';
             
-            // Atualizar progresso
             const progresso = ((perguntaAtual) / perguntas.length) * 100;
             quizProgress.style.width = `${progresso}%`;
         }
 
-        // ==================== RESPONDER PERGUNTA ====================
         function responder(respostaIndex) {
             if (!podeResponder) return;
             
             const q = perguntas[perguntaAtual];
             const isCorreta = (respostaIndex === q.correta);
             
-            // Salvar resposta
             respostasUsuario.push({
                 pergunta: q.pergunta,
                 respostaSelecionada: q.opcoes[respostaIndex],
@@ -668,15 +684,14 @@
                 pontuacaoTotal += q.pontos;
                 totalScoreSpan.textContent = pontuacaoTotal;
                 feedbackArea.className = 'feedback correct';
-                feedbackArea.innerHTML = `✅ CORRETO! +${q.pontos} pontos. ${q.nivel === 'Difícil' ? '🌟 Parabéns pela resposta difícil!' : 'Continue assim!'}`;
+                feedbackArea.innerHTML = `✅ CORRETO! +${q.pontos} pontos.`;
             } else {
                 feedbackArea.className = 'feedback wrong';
-                feedbackArea.innerHTML = `❌ ERRADO! A resposta correta é: ${q.opcoes[q.correta]}. Você perdeu ${q.pontos} pontos.`;
+                feedbackArea.innerHTML = `❌ ERRADO! A resposta correta é: ${q.opcoes[q.correta]}.`;
             }
             
             feedbackArea.style.display = 'block';
             
-            // Destacar botões (mostrar correto/errado)
             const botoes = document.querySelectorAll('.quiz-btn');
             botoes.forEach((btn, idx) => {
                 btn.disabled = true;
@@ -691,7 +706,6 @@
             
             podeResponder = false;
             
-            // Mostrar próximo botão
             if (perguntaAtual + 1 < perguntas.length) {
                 nextBtn.style.display = 'block';
             } else {
@@ -700,7 +714,6 @@
             }
         }
 
-        // ==================== PRÓXIMA PERGUNTA ====================
         function proximaPergunta() {
             if (!podeResponder) {
                 perguntaAtual++;
@@ -708,37 +721,26 @@
             }
         }
 
-        // ==================== FINALIZAR QUIZ ====================
         function finalizarQuiz() {
             quizFinalizado = true;
             
-            // Ocultar área de perguntas
             document.getElementById('questionArea').style.display = 'none';
             nextBtn.style.display = 'none';
             
-            // Mostrar área final
             finalArea.style.display = 'block';
             restartBtn.style.display = 'block';
             
-            // Calcular porcentagem
             const pontosMaximos = perguntas.reduce((acc, q) => acc + q.pontos, 0);
             const porcentagem = (pontuacaoTotal / pontosMaximos) * 100;
             
-            // Mensagem personalizada
-            let mensagem = '';
             let rank = '';
-            
             if (porcentagem >= 90) {
-                mensagem = '🏆 EXCELENTE! Você é um MESTRE da cultura agrícola brasileira! 🌟🌟🌟';
                 rank = '🏆 Mestre do Agro';
             } else if (porcentagem >= 70) {
-                mensagem = '🎉 MUITO BOM! Você tem um ótimo conhecimento sobre o assunto! 🌟🌟';
                 rank = '🎖️ Especialista';
             } else if (porcentagem >= 50) {
-                mensagem = '👍 BOM! Continue aprendendo, você está no caminho certo! 🌟';
                 rank = '📚 Aprendiz';
             } else {
-                mensagem = '📚 QUE TAL TENTAR NOVAMENTE? Refaça o quiz e melhore seu conhecimento! 💪';
                 rank = '🌱 Iniciante';
             }
             
@@ -750,36 +752,24 @@
             
             document.getElementById('rankMessage').innerHTML = `
                 <div style="background: #fefae0; padding: 15px; border-radius: 15px; margin-top: 10px;">
-                    <span style="font-size: 2rem;">${rank.includes('Mestre') ? '🏆' : (rank.includes('Especialista') ? '🎖️' : (rank.includes('Aprendiz') ? '📚' : '🌱'))}</span>
+                    <span style="font-size: 2rem;">${rank.split(' ')[0]}</span>
                     <h4>Classificação: ${rank}</h4>
                 </div>
             `;
             
-            // Salvar pontuação no localStorage
             localStorage.setItem('quizPontuacao', pontuacaoTotal);
             localStorage.setItem('quizPontosMaximos', pontosMaximos);
             localStorage.setItem('quizPorcentagem', porcentagem.toFixed(1));
             localStorage.setItem('quizRank', rank);
             localStorage.setItem('quizCompletado', 'true');
             
-            // Habilitar certificado se tiver pelo menos 50 pontos
             const btnCert = document.getElementById('gerarCertificado');
             if (btnCert) {
-                if (pontuacaoTotal >= 70) {
-                    btnCert.disabled = false;
-                    btnCert.textContent = '🎉 Gerar Certificado 🎉';
-                    document.getElementById('mensagemCertificado').innerHTML = '✅ Parabéns! Você atingiu a pontuação necessária para o certificado!';
-                    document.getElementById('mensagemCertificado').style.color = '#2d6a4f';
-                } else {
-                    btnCert.disabled = true;
-                    btnCert.textContent = '🔒 Complete o Quiz com 70+ pontos';
-                    document.getElementById('mensagemCertificado').innerHTML = '⚠️ Você precisa de pelo menos 70 pontos para gerar o certificado. Refaça o quiz!';
-                    document.getElementById('mensagemCertificado').style.color = '#e63946';
-                }
+                btnCert.disabled = false;
+                btnCert.textContent = '🎉 Gerar Certificado 🎉';
             }
         }
 
-        // ==================== REINICIAR QUIZ ====================
         function reiniciarQuiz() {
             perguntaAtual = 0;
             pontuacaoTotal = 0;
@@ -788,15 +778,25 @@
             podeResponder = true;
             totalScoreSpan.textContent = '0';
             
-            // Mostrar área de perguntas
             document.getElementById('questionArea').style.display = 'block';
             finalArea.style.display = 'none';
             restartBtn.style.display = 'none';
             
             carregarPergunta();
+            
+            localStorage.removeItem('quizCompletado');
+            localStorage.removeItem('quizPontuacao');
+            
+            const btnCert = document.getElementById('gerarCertificado');
+            if (btnCert) {
+                btnCert.disabled = true;
+                btnCert.textContent = '🔒 Complete o Quiz primeiro';
+            }
+            document.getElementById('previewCertificado').style.display = 'none';
+            document.getElementById('baixarCertificado').style.display = 'none';
+            certificadoGerado = false;
         }
 
-        // ==================== EVENTOS ====================
         nextBtn.addEventListener('click', proximaPergunta);
         restartBtn.addEventListener('click', reiniciarQuiz);
 
@@ -805,101 +805,134 @@
         const nomeInput = document.getElementById('nomeUsuario');
         const mensagemCert = document.getElementById('mensagemCertificado');
         const preview = document.getElementById('previewCertificado');
-        const nomeCertificado = document.getElementById('nomeCertificado');
+        const btnBaixar = document.getElementById('baixarCertificado');
+        const nomeCertificadoSpan = document.getElementById('nomeCertificado');
         const dataCertificadoSpan = document.getElementById('dataCertificado');
-        const certPontuacao = document.getElementById('certPontuacao');
-        const certRank = document.getElementById('certRank');
+        const certPontuacaoSpan = document.getElementById('certPontuacao');
+        const certRankSpan = document.getElementById('certRank');
         let certificadoGerado = false;
 
-        if (btnGerar) {
-            btnGerar.addEventListener('click', function() {
-                const nome = nomeInput ? nomeInput.value.trim() : '';
-                
-                if (nome === '') {
-                    mensagemCert.innerHTML = '⚠️ Por favor, digite seu nome!';
-                    mensagemCert.style.color = '#e63946';
-                    return;
-                }
-                
-                const quizCompletado = localStorage.getItem('quizCompletado');
-                const pontuacao = localStorage.getItem('quizPontuacao');
-                
-                if (quizCompletado !== 'true') {
-                    mensagemCert.innerHTML = '⚠️ Complete o quiz primeiro!';
-                    mensagemCert.style.color = '#e63946';
-                    return;
-                }
-                
-                if (parseInt(pontuacao) < 70) {
-                    mensagemCert.innerHTML = '⚠️ Você precisa de pelo menos 70 pontos para o certificado! Refaça o quiz.';
-                    mensagemCert.style.color = '#e63946';
-                    return;
-                }
-                
-                if (certificadoGerado) {
-                    mensagemCert.innerHTML = '📜 Certificado já foi gerado!';
-                    mensagemCert.style.color = '#1b4332';
-                    return;
-                }
-                
-                const agora = new Date();
-                const dataFormatada = agora.toLocaleDateString('pt-BR');
-                const hora = agora.toLocaleTimeString('pt-BR');
-                
-                nomeCertificado.textContent = nome;
-                dataCertificadoSpan.textContent = `Emitido em: ${dataFormatada} às ${hora}`;
-                certPontuacao.textContent = `${pontuacao} pontos`;
-                certRank.textContent = localStorage.getItem('quizRank') || 'Especialista';
-                
-                preview.style.display = 'block';
-                mensagemCert.innerHTML = '🎓✨ CERTIFICADO GERADO COM SUCESSO! ✨🎓';
+        btnGerar.addEventListener('click', function() {
+            const nome = nomeInput.value.trim();
+            
+            if (nome === '') {
+                mensagemCert.innerHTML = '⚠️ Por favor, digite seu nome!';
+                mensagemCert.style.color = '#e63946';
+                return;
+            }
+            
+            const quizCompletado = localStorage.getItem('quizCompletado');
+            const pontuacao = localStorage.getItem('quizPontuacao');
+            
+            if (quizCompletado !== 'true') {
+                mensagemCert.innerHTML = '⚠️ Complete o quiz primeiro!';
+                mensagemCert.style.color = '#e63946';
+                return;
+            }
+            
+            if (certificadoGerado) {
+                mensagemCert.innerHTML = '📜 Certificado já foi gerado!';
                 mensagemCert.style.color = '#1b4332';
-                
-                certificadoGerado = true;
-                btnGerar.disabled = true;
-                btnGerar.textContent = '✅ Certificado Gerado ✅';
-                
-                // Confetes
-                for (let i = 0; i < 60; i++) {
-                    const confete = document.createElement('div');
-                    const emojis = ['🎉', '✨', '🌟', '🌽', '☕', '🍇', '🌱', '🏆'];
-                    confete.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-                    confete.style.position = 'fixed';
-                    confete.style.left = Math.random() * 100 + '%';
-                    confete.style.top = '-30px';
-                    confete.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                    confete.style.pointerEvents = 'none';
-                    confete.style.zIndex = '9999';
-                    confete.style.animation = `confete ${Math.random() * 2 + 2}s linear forwards`;
-                    document.body.appendChild(confete);
-                    setTimeout(() => confete.remove(), 3000);
-                }
-            });
-        }
+                return;
+            }
+            
+            const agora = new Date();
+            const dataFormatada = agora.toLocaleDateString('pt-BR');
+            const hora = agora.toLocaleTimeString('pt-BR');
+            
+            nomeCertificadoSpan.textContent = nome;
+            dataCertificadoSpan.textContent = `Emitido em: ${dataFormatada} às ${hora}`;
+            certPontuacaoSpan.textContent = pontuacao;
+            certRankSpan.textContent = localStorage.getItem('quizRank') || 'Especialista';
+            
+            preview.style.display = 'block';
+            btnBaixar.style.display = 'block';
+            
+            mensagemCert.innerHTML = '🎓✨ CERTIFICADO GERADO COM SUCESSO! ✨🎓';
+            mensagemCert.style.color = '#1b4332';
+            
+            certificadoGerado = true;
+            btnGerar.disabled = true;
+            btnGerar.textContent = '✅ Certificado Gerado ✅';
+            
+            // Confetes
+            for (let i = 0; i < 60; i++) {
+                const confete = document.createElement('div');
+                const emojis = ['🎉', '✨', '🌟', '🌽', '☕', '🍇', '🌱', '🏆'];
+                confete.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                confete.style.position = 'fixed';
+                confete.style.left = Math.random() * 100 + '%';
+                confete.style.top = '-30px';
+                confete.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                confete.style.pointerEvents = 'none';
+                confete.style.zIndex = '9999';
+                confete.style.animation = `confete ${Math.random() * 2 + 2}s linear forwards`;
+                document.body.appendChild(confete);
+                setTimeout(() => confete.remove(), 3000);
+            }
+        });
 
-        // Download do certificado
-        const baixarCert = document.getElementById('baixarCertificado');
-        if (baixarCert) {
-            baixarCert.addEventListener('click', function() {
-                const elemento = document.getElementById('previewCertificado');
-                if (elemento && typeof html2canvas !== 'undefined') {
-                    html2canvas(elemento, { scale: 2 }).then(canvas => {
-                        const link = document.createElement('a');
-                        const nome = nomeInput ? nomeInput.value.trim() : 'visitante';
-                        link.download = `certificado_${nome.replace(/ /g, '_')}.png`;
-                        link.href = canvas.toDataURL();
-                        link.click();
-                    });
-                } else {
-                    alert('💡 Tire um print da tela para salvar seu certificado!');
-                }
+        // ==================== BAIXAR CERTIFICADO SEM O BOTÃO ====================
+        btnBaixar.addEventListener('click', function() {
+            // Clona o preview do certificado
+            const originalPreview = document.getElementById('previewCertificado');
+            const clone = originalPreview.cloneNode(true);
+            
+            // Remove qualquer botão que possa existir dentro do clone
+            const botoesNoClone = clone.querySelectorAll('button');
+            botoesNoClone.forEach(btn => btn.remove());
+            
+            // Estiliza o clone para ficar bonito
+            clone.style.display = 'block';
+            clone.style.position = 'fixed';
+            clone.style.left = '-9999px';
+            clone.style.top = '0';
+            clone.style.width = '600px';
+            clone.style.padding = '40px';
+            clone.style.backgroundColor = 'white';
+            clone.style.borderRadius = '20px';
+            clone.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+            clone.style.textAlign = 'center';
+            
+            document.body.appendChild(clone);
+            
+            // Gera a imagem
+            html2canvas(clone, {
+                scale: 2,
+                backgroundColor: '#ffffff',
+                logging: false
+            }).then(canvas => {
+                const link = document.createElement('a');
+                const nome = nomeInput.value.trim().replace(/ /g, '_');
+                link.download = `certificado_${nome}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                
+                // Remove o clone
+                document.body.removeChild(clone);
+                
+                // Mensagem de sucesso
+                const msg = document.createElement('div');
+                msg.textContent = '📥 Certificado baixado com sucesso!';
+                msg.style.position = 'fixed';
+                msg.style.bottom = '20px';
+                msg.style.left = '50%';
+                msg.style.transform = 'translateX(-50%)';
+                msg.style.backgroundColor = '#2d6a4f';
+                msg.style.color = 'white';
+                msg.style.padding = '10px 20px';
+                msg.style.borderRadius = '30px';
+                msg.style.zIndex = '10000';
+                document.body.appendChild(msg);
+                setTimeout(() => msg.remove(), 3000);
+            }).catch(error => {
+                document.body.removeChild(clone);
+                alert('Erro ao gerar imagem. Tente novamente!');
             });
-        }
+        });
 
-        // Iniciar quiz
         carregarPergunta();
 
-        // Contador de visitas
         let visitas = localStorage.getItem('visitasRaizes') || 0;
         visitas = parseInt(visitas) + 1;
         localStorage.setItem('visitasRaizes', visitas);
